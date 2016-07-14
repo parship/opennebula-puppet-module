@@ -415,6 +415,19 @@ IM_MAD = [
 #IM_MAD = [ name="dummy", executable="one_im_dummy"]
 #-------------------------------------------------------------------------------
 
+<% # custom IMs
+  if @oned_custom_ims.is_a?(Hash) && @oned_custom_ims.size >0  then
+     output = ''
+     @oned_custom_ims.each do | im, items |
+       output << "IM_MAD = [\n    name = #{im.to_s}\n"
+       items.each do |k,v|
+         output << "    #{k.to_s} = #{v}\n"
+       end
+       output << "]\n\n"
+     end -%>
+<%= output %>
+<% end -%>
+
 #*******************************************************************************
 # Virtualization Driver Configuration
 #*******************************************************************************
@@ -602,6 +615,19 @@ VM_MAD = [
 #-------------------------------------------------------------------------------
 #VM_MAD = [ name="dummy", executable="one_vmm_dummy", type="xml" ]
 #-------------------------------------------------------------------------------
+
+<% # custom VMMs
+   if @oned_custom_vmms.is_a?(Hash) && @oned_custom_vmms.size >0  then
+     output = ''
+     @oned_custom_vmms.each do | im, items |
+       output << "VMM_MAD = [\n    name = #{im.to_s}"
+       items.each do |k,v|
+         output << "\n    #{k.to_s} = #{v}"
+       end
+       output << " ]\n\n"
+     end -%>
+    <%= output %>
+<% end -%>
 
 #*******************************************************************************
 # Transfer Manager Driver Configuration
