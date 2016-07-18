@@ -346,8 +346,6 @@ class one (
   $puppetdb           = false,
   $debug_level        = '0',
   $oned_port                      = $one::params::oned_port,
-  $oned_custom_ims                = $one::params::oned_custom_ims,
-  $oned_custom_vmms               = $one::params::oned_custom_vmms,
   $oned_db                        = $one::params::oned_db,
   $oned_db_user                   = $one::params::oned_db_user,
   $oned_db_password               = $one::params::oned_db_password,
