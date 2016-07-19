@@ -58,7 +58,7 @@ class one::oned::config(
   $default_image_type          = $one::default_image_type,
   $default_device_prefix       = $one::default_device_prefix,
   $default_cdrom_device_prefix = $one::default_cdrom_device_prefix,
-) {
+) inherits one::params {
 
   if ! member(['YES', 'NO'], $oned_vm_submit_on_hold) {
     fail("oned_vm_submit_on_hold must be one of 'YES' or 'NO'. Actual value: ${oned_vm_submit_on_hold}")
