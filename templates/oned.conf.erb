@@ -623,7 +623,7 @@ VM_MAD = [
      output = ''
      @oned_custom_vmms.each do | vmm, items |
        output << "\n# custom vmm #{vmm.to_s}\n"
-       output << "VMM_MAD = [\n    name = \"#{vmm.to_s}\""
+       output << "VMM_MAD = [\n    name = \"#{vmm.to_s}\","
        items.each do |k,v|
          output << "\n    #{k.to_s} = \"#{v}\","
        end
