@@ -419,11 +419,13 @@ IM_MAD = [
   if @oned_custom_ims.is_a?(Hash) && @oned_custom_ims.size >0  then
      output = ''
      @oned_custom_ims.each do | im, items |
-       output << "IM_MAD = [\n    name = \"#{im.to_s}\"\n"
+       output << "\n# custom im #{im.to_s}\n"
+       output << "IM_MAD = [\n    name = \"#{im.to_s}\","
        items.each do |k,v|
-         output << "    #{k.to_s} = \"#{v}\"\n"
+         output << "\n    #{k.to_s} = \"#{v}\","
        end
-       output << "]\n\n"
+       output.chop!
+       output << " ]\n"
      end -%>
 <%= output %>
 <% end -%>
@@ -619,12 +621,14 @@ VM_MAD = [
 <% # custom VMMs
    if @oned_custom_vmms.is_a?(Hash) && @oned_custom_vmms.size >0  then
      output = ''
-     @oned_custom_vmms.each do | im, items |
-       output << "VMM_MAD = [\n    name = \"#{im.to_s}\""
+     @oned_custom_vmms.each do | vmm, items |
+       output << "\n# custom vmm #{vmm.to_s}\n"
+       output << "VMM_MAD = [\n    name = \"#{vmm.to_s}\""
        items.each do |k,v|
-         output << "\n    #{k.to_s} = \"#{v}\""
+         output << "\n    #{k.to_s} = \"#{v}\","
        end
-       output << " ]\n\n"
+       output.chop!
+       output << " ]\n"
      end -%>
 <%= output %>
 <% end -%>
