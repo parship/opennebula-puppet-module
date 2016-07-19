@@ -419,9 +419,9 @@ IM_MAD = [
   if @oned_custom_ims.is_a?(Hash) && @oned_custom_ims.size >0  then
      output = ''
      @oned_custom_ims.each do | im, items |
-       output << "IM_MAD = [\n    name = #{im.to_s}\n"
+       output << "IM_MAD = [\n    name = \"#{im.to_s}\"\n"
        items.each do |k,v|
-         output << "    #{k.to_s} = #{v}\n"
+         output << "    #{k.to_s} = \"#{v}\"\n"
        end
        output << "]\n\n"
      end -%>
@@ -620,9 +620,9 @@ VM_MAD = [
    if @oned_custom_vmms.is_a?(Hash) && @oned_custom_vmms.size >0  then
      output = ''
      @oned_custom_vmms.each do | im, items |
-       output << "VMM_MAD = [\n    name = #{im.to_s}"
+       output << "VMM_MAD = [\n    name = \"#{im.to_s}\""
        items.each do |k,v|
-         output << "\n    #{k.to_s} = #{v}"
+         output << "\n    #{k.to_s} = \"#{v}\""
        end
        output << " ]\n\n"
      end -%>
