@@ -21,6 +21,7 @@
 class one::prerequisites(
   $one_repo_enable  = $one::one_repo_enable,
   $one_version      = $one::one_version,
+  $one_apt_base_location = "http://downloads.opennebula.org/repo"
 ) {
 
   # we only need major version here, so trim off any minor point release(s)
@@ -54,12 +55,12 @@ class one::prerequisites(
         }
 
         apt::key { 'one_repo_key':
-          key        => '85E16EBF',
+          key        => '92B77188854CF23E1634DA89592F7F0585E16EBF',
           key_source => 'http://downloads.opennebula.org/repo/Debian/repo.key',
         } ->
 
         apt::source { 'one-official': # lint:ignore:security_apt_no_key
-          location          => "http://downloads.opennebula.org/repo/${apt_location}",
+          location          => "${$one_apt_base_location}/${apt_location}",
           release           => 'stable',
           repos             => 'opennebula',
           required_packages => 'debian-keyring debian-archive-keyring',
