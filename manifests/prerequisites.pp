@@ -21,7 +21,8 @@
 class one::prerequisites(
   $one_repo_enable  = $one::one_repo_enable,
   $one_version      = $one::one_version,
-  $one_apt_base_location = "http://downloads.opennebula.org/repo"
+  $one_apt_base_location = "http://downloads.opennebula.org/repo",
+  $one_architecture  = "amd64"
 ) {
 
   # we only need major version here, so trim off any minor point release(s)
@@ -66,6 +67,7 @@ class one::prerequisites(
           required_packages => 'debian-keyring debian-archive-keyring',
           pin               => $apt_pin,
           include_src       => false,
+          architecture      => $one_architecture
         }
       }
     }
